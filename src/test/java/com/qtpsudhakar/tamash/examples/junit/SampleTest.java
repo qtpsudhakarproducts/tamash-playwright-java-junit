@@ -2,15 +2,13 @@ package com.qtpsudhakar.tamash.examples.junit;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import io.github.qtpsudhakarproducts.tamash.junit.UseTamashPlaywright;
 import org.junit.jupiter.api.Test;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static io.github.qtpsudhakarproducts.tamash.bindings.Bindings.unwrap;
 
 // Non-POM example: locators are declared directly inside the test method.
-@UseTamashPlaywright
-public class SampleTest {
+public class SampleTest extends BaseTest {
 
   @Test
   void loginUsingCssSelectors(Page page) {

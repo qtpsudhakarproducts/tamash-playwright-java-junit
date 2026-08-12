@@ -7,8 +7,7 @@ Example usage of [`tamash-playwright`](https://central.sonatype.com/artifact/io.
 - `SampleTest.java` — no page objects; locators declared directly in the test method.
 - `PomTest.java` — Page Object Model; page objects wrap the self-healing `Page`.
 - `pages/` — page object classes.
-
-Both test classes are annotated `@UseTamashPlaywright`, which injects a self-healing `Page` into test methods (see `tamash-playwright`'s `TamashPlaywrightExtension`).
+- `BaseTest.java` — annotated `@UseTamashPlaywright`; both test classes extend it rather than repeating the annotation themselves. JUnit 5's extension registration searches up the class hierarchy for `@ExtendWith` (which `@UseTamashPlaywright` is built on), so this propagates correctly to subclasses and still injects a self-healing `Page` into test methods (see `tamash-playwright`'s `TamashPlaywrightExtension`).
 
 ## Setup
 

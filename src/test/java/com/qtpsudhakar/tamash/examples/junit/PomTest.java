@@ -6,12 +6,10 @@ import com.qtpsudhakar.tamash.examples.junit.pages.DashboardPage;
 import com.qtpsudhakar.tamash.examples.junit.pages.LoginPage;
 import com.qtpsudhakar.tamash.examples.junit.pages.PIMPage;
 import com.qtpsudhakar.tamash.examples.junit.pages.PersonalDetailsPage;
-import io.github.qtpsudhakarproducts.tamash.junit.UseTamashPlaywright;
 import org.junit.jupiter.api.Test;
 
 // Page Object Model example: page objects wrap the self-healing Page.
-@UseTamashPlaywright
-public class PomTest {
+public class PomTest extends BaseTest {
 
   @Test
   void createEmployeeUsingPageObjectModel(Page page) {
