@@ -1,11 +1,11 @@
 package com.qtpsudhakar.tamash.examples.junit.pages;
 
 import com.microsoft.playwright.Page;
-import io.github.qtpsudhakarproducts.tamash.Env;
+import com.qtpsudhakar.tamash.examples.junit.Config;
 
 public class BasePage {
-  protected static final String BASE_URL = Env.get("APP_BASE_URL") != null
-      ? Env.get("APP_BASE_URL")
+  protected static final String BASE_URL = Config.get("APP_BASE_URL") != null
+      ? Config.get("APP_BASE_URL")
       : "https://qtpsudhakar-vibetestq-hrm.up.railway.app/";
 
   protected final Page page;
