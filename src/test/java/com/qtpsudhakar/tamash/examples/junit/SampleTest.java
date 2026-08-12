@@ -4,8 +4,7 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import org.junit.jupiter.api.Test;
 
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-import static io.github.qtpsudhakarproducts.tamash.bindings.Bindings.unwrap;
+import static com.qtpsudhakar.tamash.examples.junit.TamashAssertions.assertThat;
 
 // Non-POM example: locators are declared directly inside the test method.
 public class SampleTest extends BaseTest {
@@ -24,7 +23,6 @@ public class SampleTest extends BaseTest {
     Locator loginButton = page.locator("button[type=\"submit\"]").describe("Login Button");
     loginButton.click();
 
-    // assertThat() needs the real Locator, not the healing wrapper.
-    assertThat(unwrap(page.locator("h6"))).hasText("Dashboard");
+    assertThat(page.locator("h6")).hasText("Dashboard");
   }
 }

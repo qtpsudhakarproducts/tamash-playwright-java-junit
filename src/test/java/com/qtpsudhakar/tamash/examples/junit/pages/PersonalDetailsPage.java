@@ -4,8 +4,7 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.assertions.LocatorAssertions;
 
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-import static io.github.qtpsudhakarproducts.tamash.bindings.Bindings.unwrap;
+import static com.qtpsudhakar.tamash.examples.junit.TamashAssertions.assertThat;
 
 public class PersonalDetailsPage extends BasePage {
   private final Locator personalDetailsHeader;
@@ -16,7 +15,7 @@ public class PersonalDetailsPage extends BasePage {
   }
 
   public void verifyPersonalDetailsPage() {
-    assertThat(unwrap(personalDetailsHeader)).isVisible(new LocatorAssertions.IsVisibleOptions().setTimeout(10000));
+    assertThat(personalDetailsHeader).isVisible(new LocatorAssertions.IsVisibleOptions().setTimeout(10000));
     System.out.println("Personal Details Page is displayed");
   }
 }

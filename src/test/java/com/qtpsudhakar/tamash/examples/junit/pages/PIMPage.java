@@ -4,8 +4,7 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.assertions.LocatorAssertions;
 
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-import static io.github.qtpsudhakarproducts.tamash.bindings.Bindings.unwrap;
+import static com.qtpsudhakar.tamash.examples.junit.TamashAssertions.assertThat;
 
 public class PIMPage extends BasePage {
   private final Locator pimHeader;
@@ -18,7 +17,7 @@ public class PIMPage extends BasePage {
   }
 
   public void verifyPIMPage() {
-    assertThat(unwrap(pimHeader)).isVisible(new LocatorAssertions.IsVisibleOptions().setTimeout(10000));
+    assertThat(pimHeader).isVisible(new LocatorAssertions.IsVisibleOptions().setTimeout(10000));
     System.out.println("PIM Page is displayed");
   }
 

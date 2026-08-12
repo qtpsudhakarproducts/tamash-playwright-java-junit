@@ -8,6 +8,7 @@ Example usage of [`tamash-playwright`](https://central.sonatype.com/artifact/io.
 - `PomTest.java` — Page Object Model; page objects wrap the self-healing `Page`.
 - `pages/` — page object classes.
 - `BaseTest.java` — annotated `@UseTamashPlaywright`; both test classes extend it rather than repeating the annotation themselves. JUnit 5's extension registration searches up the class hierarchy for `@ExtendWith` (which `@UseTamashPlaywright` is built on), so this propagates correctly to subclasses and still injects a self-healing `Page` into test methods (see `tamash-playwright`'s `TamashPlaywrightExtension`).
+- `TamashAssertions.java` — wraps Playwright's `assertThat()` so call sites never need to know about `unwrap()` (see note below).
 
 ## Setup
 
@@ -40,4 +41,4 @@ When a selector fails, `tamash-playwright` captures an ARIA snapshot, asks the c
 
 ## Note on assertions
 
-Playwright's `assertThat()` casts to the concrete Locator implementation internally, so it needs the real (unwrapped) Locator — use `Bindings.unwrap(locator)` when asserting, as shown in both test classes.
+Playwright's `assertThat()` casts to the concrete Locator implementation internally, so it needs the real (unwrapped) Locator. Rather than calling `Bindings.unwrap(locator)` at every assertion, this repo's `TamashAssertions.assertThat(locator)` does it once, centrally — import that instead of `PlaywrightAssertions.assertThat`, and just assert on the Locator directly, as shown in the test classes and page objects.

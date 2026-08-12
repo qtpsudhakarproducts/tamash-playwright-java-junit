@@ -4,8 +4,7 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-import static io.github.qtpsudhakarproducts.tamash.bindings.Bindings.unwrap;
+import static com.qtpsudhakar.tamash.examples.junit.TamashAssertions.assertThat;
 
 public class DashboardPage extends BasePage {
   private final Locator dashboardHeader;
@@ -23,7 +22,7 @@ public class DashboardPage extends BasePage {
   }
 
   public void verifyDashboardPage() {
-    assertThat(unwrap(dashboardHeader)).isVisible();
+    assertThat(dashboardHeader).isVisible();
     System.out.println("Dashboard Page is displayed");
   }
 }
